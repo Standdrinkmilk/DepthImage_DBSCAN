@@ -12,7 +12,7 @@ contains utilities which are useful to multiple samples, and could be used as sn
 applications"""
 
 import argparse
-import roypy
+from utils import roypy
 
 from tkinter import *  
 
@@ -79,7 +79,8 @@ class CameraOpener:
         # The next line tests for None, to allow '--code ""' on the command line to force access level 1
         if self._options.code is not None:
             code = self._options.code
-            if (self._min_access_level is not None) and (roypy.CameraManager.getAccessLevel(code) < self._min_access_level):
+            if (self._min_access_level is not None) and (
+                    roypy.CameraManager.getAccessLevel(code) < self._min_access_level):
                 raise RuntimeError ("This example requires at least access level %d, and the --code argument is less than that"
                         % (self._min_access_level))
         elif self._min_access_level is not None:

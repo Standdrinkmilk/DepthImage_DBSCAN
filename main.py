@@ -9,7 +9,7 @@ import os
 import sys
 import numpy as np
 
-from dbscanner import DBScanner
+from tools.dbscanner import DBScanner
 
 
 def get_data(config, DATA):

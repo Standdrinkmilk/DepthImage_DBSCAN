@@ -13,15 +13,13 @@ Press 'd' on the keyboard to toggle the distortion while a window is selected. P
 """
 # !/usr/bin/python
 # -*- coding: UTF-8 -*-
-import os.path
 import argparse
-import roypy
+from utils import roypy
 import queue
 import sys
 import threading
-from sample_camera_info import print_camera_info
-from roypy_sample_utils import CameraOpener, add_camera_opener_options
-from roypy_platform_utils import PlatformHelper
+from utils.roypy_sample_utils import CameraOpener, add_camera_opener_options
+from utils.roypy_platform_utils import PlatformHelper
 
 import numpy as np
 import cv2
@@ -72,7 +70,7 @@ class MyListener(roypy.IDepthDataListener):
 
         grayImage8 = np.uint8(grayImage)
         colorImage = cv2.applyColorMap(cv2.convertScaleAbs(zImage8, alpha=2), cv2.COLORMAP_JET)
-        output = open('RGB_PKL/{}.pkl'.format(fram), 'wb')
+        output = open('../RGB_PKL/{}.pkl'.format(fram), 'wb')
         pickle.dump(depthData, output)
         output.close()
         # apply undistortion
@@ -81,7 +79,7 @@ class MyListener(roypy.IDepthDataListener):
             grayImage8 = cv2.undistort(grayImage8, self.cameraMatrix, self.distortionCoefficients)
             colorImage = cv2.undistort(colorImage, self.cameraMatrix, self.distortionCoefficients)
 
-        cv2.imwrite('RGB_PKL/{}.jpg'.format(fram), colorImage)
+        cv2.imwrite('../RGB_PKL/{}.jpg'.format(fram), colorImage)
         # cv2.imwrite('RGB_PKL/{}_depth.jpg'.format(fram), zImage8)
         # finally show the images
         cv2.imshow('Depth', zImage8)
