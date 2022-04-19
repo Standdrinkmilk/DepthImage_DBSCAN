@@ -15,8 +15,5 @@ UPDATE: July 13, 2017 - The code has been updated to support 3D points. Although
 
 <h2>Few Snapshots</h2>
 
-<h3>2-D Clustering in action</h3>
-<img src='https://github.com/Standdrinkmilk/DepthImage_DBSCAN/master/img/figure_2D.png'>
-
 <h3>3-D Clustering in action</h3>
-<img src='https://github.com/Standdrinkmilk/DepthImage_DBSCAN/master/img/figure_3D.png'>
+<img src='https://github.com/Standdrinkmilk/DepthImage_DBSCAN/blob/master/img/figure_3D.png'>
